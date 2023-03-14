@@ -20,7 +20,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     const params = {
       TransactItems: itunesSearchResult.data.results.map((result: any) => ({
         Put: {
-          TableName: Table.Notes.tableName,
+          TableName: Table.Itunes.tableName,
           Item: {
             itemId: uuid.v4(),
             createdAt: Date.now(),
@@ -33,7 +33,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
 
     /*checking if there are items with the same query already in the table using the query as the partition key */
     const queryResult = await dynamoDb.query({
-      TableName: Table.Notes.tableName,
+      TableName: Table.Itunes.tableName,
       IndexName: "GSI2",
       KeyConditionExpression: "queryString = :queryString",
       ExpressionAttributeValues: {

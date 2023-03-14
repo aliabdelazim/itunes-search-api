@@ -2,7 +2,7 @@ import { Api, StackContext, Table } from "sst/constructs";
 
 export function ExampleStack({ stack }: StackContext) {
   // Create the table
-  const table = new Table(stack, "Notes", {
+  const table = new Table(stack, "Itunes", {
     fields: {
       itemId: "string",
       releaseDate: "string",
